@@ -20,6 +20,18 @@ public class AddressMapper {
     return address;
   }
 
+  public static Address createDtoToEntity(CreateAddressDto createAddressDto) {
+    Address address = new Address();
+
+    address.setAddress(createAddressDto.getAddress());
+    address.setCity(createAddressDto.getCity());
+    address.setDistrict(createAddressDto.getDistrict());
+    address.setLatitude(createAddressDto.getLatitude());
+    address.setLongitude(createAddressDto.getLongitude());
+
+    return address;
+  }
+
   public static AddressResponse toResponse(Address address) {
     var addressResponse = new AddressResponse();
 

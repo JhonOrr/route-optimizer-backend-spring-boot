@@ -33,6 +33,10 @@ public class Order {
   private Customer customer;
 
   @ManyToOne
-  @JoinColumn(name = "address_id", nullable = false)
-  private Address address;
+  @JoinColumn(name = "delivery_address_id")
+  private Address deliveryAddress;
+
+  @ManyToOne
+  @JoinColumn(name = "pickup_address_id")
+  private Address pickupAddress;
 }

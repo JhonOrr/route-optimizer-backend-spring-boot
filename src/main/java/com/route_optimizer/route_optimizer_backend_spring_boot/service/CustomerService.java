@@ -10,6 +10,8 @@ import com.route_optimizer.route_optimizer_backend_spring_boot.dto.CustomerDto.U
 import com.route_optimizer.route_optimizer_backend_spring_boot.entity.Customer;
 import com.route_optimizer.route_optimizer_backend_spring_boot.mappers.CustomerMapper;
 import com.route_optimizer.route_optimizer_backend_spring_boot.repository.CustomerRepository;
+import com.route_optimizer.route_optimizer_backend_spring_boot.response.AddressResponse;
+import com.route_optimizer.route_optimizer_backend_spring_boot.response.CustomerResponse;
 
 import lombok.AllArgsConstructor;
 
@@ -20,8 +22,13 @@ public class CustomerService {
   private final CustomerRepository customerRepository;
   private final AddressService addressService;
 
-  public List<Customer> getAllCustomers() {
-    return customerRepository.findByStatusOrderByIdAsc(1);
+  public List<CustomerResponse> getAllCustomers() {
+    List<Customer> customers = customerRepository.findByStatusOrderByIdAsc(1);
+
+    return customers.stream().map((customer) -> {
+      List<AddressResponse> addresses = addressService.getAllAddressesByCustomer(customer.getId());
+      return CustomerMapper.toResponse(customer, addresses);
+    }).toList();
   }
 
   public Customer createCustomer(CreateCustomerDto createCustomerDto) {

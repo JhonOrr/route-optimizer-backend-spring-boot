@@ -6,7 +6,7 @@ import lombok.Getter;
 public class CreateAddressDto {
   private String address;
   private String district;
-  private String city;
+  private String city;  
   private Double latitude;
   private Double longitude;
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.route_optimizer.route_optimizer_backend_spring_boot.dto.CustomerDto.CreateCustomerDto;
 import com.route_optimizer.route_optimizer_backend_spring_boot.dto.CustomerDto.UpdateCustomerDto;
 import com.route_optimizer.route_optimizer_backend_spring_boot.entity.Customer;
+import com.route_optimizer.route_optimizer_backend_spring_boot.response.CustomerResponse;
 import com.route_optimizer.route_optimizer_backend_spring_boot.service.CustomerService;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +33,7 @@ public class CustomerController {
   }
 
   @GetMapping
-  public List<Customer> getAllCustomers() {
+  public List<CustomerResponse> getAllCustomers() {
     return customerService.getAllCustomers();
   }
 
