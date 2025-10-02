@@ -55,7 +55,7 @@ public class OrderService {
     order.setDeliveryAddress(deliveryAddress);
     order.setCustomer(customer);
     order.setOrderDate(createOrderDto.getOrderDate());
-    order.setStatus(1);
+    order.setStatus("1");
     order.setWeight(createOrderDto.getWeight());
     order.setOrderNumber("x");
 

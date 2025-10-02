@@ -14,7 +14,7 @@ public class OrderResponse {
   private Long Id;
   private String orderNumber;
   private LocalDate orderDate;
-  private Integer status;
+  private String status;
   private Double weight;
   private Customer customer;
   private AddressResponse deliveryAddress;

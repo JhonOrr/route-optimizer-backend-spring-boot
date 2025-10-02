@@ -23,7 +23,7 @@ public class Order {
   private LocalDate orderDate;
 
   @Column(nullable = false, length = 50)
-  private Integer status;
+  private String status;
 
   @Column
   private Double weight;
